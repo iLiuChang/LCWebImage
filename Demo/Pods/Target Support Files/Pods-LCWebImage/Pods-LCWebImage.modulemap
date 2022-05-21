@@ -1,0 +1,6 @@
+framework module Pods_LCWebImage {
+  umbrella header "Pods-LCWebImage-umbrella.h"
+
+  export *
+  module * { export * }
+}

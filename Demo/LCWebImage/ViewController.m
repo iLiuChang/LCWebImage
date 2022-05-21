@@ -19,7 +19,6 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
 //    UIImageView *bgImageView = [[UIImageView alloc] init];
     YYAnimatedImageView *bgImageView = [[YYAnimatedImageView alloc] init];
-
     bgImageView.contentMode = UIViewContentModeScaleAspectFill;
     bgImageView.layer.masksToBounds = YES;
     [self.contentView addSubview:bgImageView];

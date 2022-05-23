@@ -39,8 +39,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // 自定义装换
-    [(LCAutoPurgingImageCache *)[LCImageDownloader defaultInstance].imageCache setCustomTransform:^UIImage * _Nonnull(NSData * _Nonnull data, NSString * _Nonnull identifier) {
+    // 自定义解码
+    [(LCAutoPurgingImageCache *)[LCImageDownloader defaultInstance].imageCache setCustomDecodedImage:^UIImage * _Nonnull(NSData * _Nonnull data, NSString * _Nonnull identifier) {
         return [[YYImage alloc] initWithData:data scale:UIScreen.mainScreen.scale];
     }];
 

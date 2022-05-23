@@ -7,6 +7,8 @@
 
 #import <TargetConditionals.h>
 #import <CommonCrypto/CommonDigest.h>
+#import "UIImage+LCDecoder.h"
+
 #if TARGET_OS_IOS || TARGET_OS_TV 
 
 #import "LCAutoPurgingImageCache.h"
@@ -426,18 +428,17 @@ static inline NSString * _Nonnull LCDiskCacheFileNameForKey(NSString * _Nullable
     });
 }
 
-- (UIImage *)transformImageFromData:(NSData *)data withIdentifier:(NSString *)identifier {
+- (UIImage *)decodedImageFromData:(NSData *)data withIdentifier:(NSString *)identifier {
     if (!data) {
         return nil;
     }
-    if (self.customTransform) {
-        return self.customTransform(data, identifier);
+    if (self.customDecodedImage) {
+        return self.customDecodedImage(data, identifier);
     }
     UIImage *image = [UIImage imageWithData:data];
-    image = [[UIImage alloc] initWithCGImage:[image CGImage] scale:[[UIScreen mainScreen] scale] orientation:image.imageOrientation];
+    image = [UIImage lc_decodedAndScaledDownImageWithImage:image limitBytes:0];
     return image;
 }
-
 
 - (BOOL)removeMemoryImageWithIdentifier:(NSString *)identifier {
     __block BOOL removed = NO;
@@ -502,7 +503,7 @@ static inline NSString * _Nonnull LCDiskCacheFileNameForKey(NSString * _Nullable
 - (UIImage *)imageWithIdentifier:(NSString *)identifier {
     UIImage *image = [self memoryImageWithIdentifier:identifier];
     if (!image) {
-        return [self transformImageFromData:[self.diskCache dataWithIdentifier:identifier] withIdentifier:identifier];
+        return [self decodedImageFromData:[self.diskCache dataWithIdentifier:identifier] withIdentifier:identifier];
     }
     return image;
 }

@@ -184,7 +184,7 @@
     dispatch_sync(self.synchronizationQueue, ^{
         dispatch_async(self.responseQueue, ^{
             NSData *imageData = [self.imageCache diskDataWithIdentifier:URL.absoluteString];
-            UIImage *image = [self.imageCache transformImageFromData:imageData withIdentifier:URL.absoluteString];
+            UIImage *image = [self.imageCache decodedImageFromData:imageData withIdentifier:URL.absoluteString];
             [self.imageCache addMemoryImage:image withIdentifier:URL.absoluteString];
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (completion) {
@@ -273,7 +273,7 @@
                             }
                         }
                     } else {
-                        UIImage *image = [strongSelf.imageCache transformImageFromData:responseObject withIdentifier:URLIdentifier];
+                        UIImage *image = [strongSelf.imageCache decodedImageFromData:responseObject withIdentifier:URLIdentifier];
                         [strongSelf.imageCache addMemoryImage:image withIdentifier:URLIdentifier];
                         if (!(options & LCWebImageOptionIgnoreDiskCache)) {
                             [strongSelf.imageCache addDiskData:responseObject withIdentifier:URLIdentifier];

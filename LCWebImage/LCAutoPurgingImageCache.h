@@ -39,14 +39,14 @@ typedef NS_ENUM(NSUInteger, LCImageDiskCacheExpireType) {
 @protocol LCImageCache <NSObject>
 
 /**
- NSData to UIImage.
+ The decoded image.
 
  @param data The origin data.
  @param identifier The unique identifier for the image in the cache.
  
  @return An image for the data, or nil.
  */
-- (nullable UIImage *)transformImageFromData:(nullable NSData *)data withIdentifier:(NSString *)identifier;
+- (nullable UIImage *)decodedImageFromData:(nullable NSData *)data withIdentifier:(NSString *)identifier;
 
 /**
  Adds the image to the cache with the given identifier.
@@ -246,9 +246,9 @@ typedef NS_ENUM(NSUInteger, LCImageDiskCacheExpireType) {
 @property (nonatomic, strong, nullable) LCImageDiskCache *diskCache;
 
 /**
- NSData to UIImage.
+ Customize the decoded image.
  */
-@property (nonatomic, copy, nullable) UIImage * (^customTransform)(NSData *data, NSString *identifier);
+@property (nonatomic, copy, nullable) UIImage * (^customDecodedImage)(NSData *data, NSString *identifier);
 
 /**
  The total memory capacity of the cache in bytes.

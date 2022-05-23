@@ -21,7 +21,7 @@ LCWebImage 是基于[AFNetworking](https://github.com/AFNetworking/AFNetworking)
 
 ```objective-c
 // 自定义解码
-[(LCAutoPurgingImageCache *)[LCImageDownloader defaultInstance].imageCache setCustomTransform:^UIImage * _Nonnull(NSData * _Nonnull data, NSString * _Nonnull identifier) {
+[(LCAutoPurgingImageCache *)[LCImageDownloader defaultInstance].imageCache setCustomDecodedImage:^UIImage * _Nonnull(NSData * _Nonnull data, NSString * _Nonnull identifier) {
     return [[YYImage alloc] initWithData:data scale:UIScreen.mainScreen.scale];
 }];
 ```

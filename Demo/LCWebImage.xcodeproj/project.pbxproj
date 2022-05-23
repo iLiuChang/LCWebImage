@@ -25,6 +25,7 @@
 		58429FFF28389D6000E2FF0A /* YYImageCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 58429FF928389D6000E2FF0A /* YYImageCoder.m */; };
 		5842A00028389D6000E2FF0A /* YYFrameImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 58429FFA28389D6000E2FF0A /* YYFrameImage.m */; };
 		5842A00128389D6000E2FF0A /* YYAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58429FFB28389D6000E2FF0A /* YYAnimatedImageView.m */; };
+		58A2C611283B3D8000496FFC /* UIImage+LCDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A2C60F283B3D8000496FFC /* UIImage+LCDecoder.m */; };
 		66EDDBEBAF1EBB14F8A6BB83 /* Pods_LCWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE587DB2BD34265E491FBA95 /* Pods_LCWebImage.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,8 @@
 		58429FFA28389D6000E2FF0A /* YYFrameImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFrameImage.m; sourceTree = "<group>"; };
 		58429FFB28389D6000E2FF0A /* YYAnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYAnimatedImageView.m; sourceTree = "<group>"; };
 		58429FFC28389D6000E2FF0A /* YYSpriteSheetImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSpriteSheetImage.h; sourceTree = "<group>"; };
+		58A2C60F283B3D8000496FFC /* UIImage+LCDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LCDecoder.m"; sourceTree = "<group>"; };
+		58A2C610283B3D8000496FFC /* UIImage+LCDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LCDecoder.h"; sourceTree = "<group>"; };
 		D766669C3B72CA9C5D043F98 /* Pods-LCWebImage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCWebImage.debug.xcconfig"; path = "Target Support Files/Pods-LCWebImage/Pods-LCWebImage.debug.xcconfig"; sourceTree = "<group>"; };
 		E098C0E96AEB011F58847FFD /* Pods-LCWebImage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCWebImage.release.xcconfig"; path = "Target Support Files/Pods-LCWebImage/Pods-LCWebImage.release.xcconfig"; sourceTree = "<group>"; };
 		FE587DB2BD34265E491FBA95 /* Pods_LCWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LCWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +134,8 @@
 			children = (
 				58429FD2283897A000E2FF0A /* LCAutoPurgingImageCache.h */,
 				58429FCF283897A000E2FF0A /* LCAutoPurgingImageCache.m */,
+				58A2C610283B3D8000496FFC /* UIImage+LCDecoder.h */,
+				58A2C60F283B3D8000496FFC /* UIImage+LCDecoder.m */,
 				58429FD1283897A000E2FF0A /* LCImageDownloader.h */,
 				58429FCD283897A000E2FF0A /* LCImageDownloader.m */,
 				58429FCE283897A000E2FF0A /* UIButton+LCWebImage.h */,
@@ -292,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58429FD4283897A000E2FF0A /* LCImageDownloader.m in Sources */,
+				58A2C611283B3D8000496FFC /* UIImage+LCDecoder.m in Sources */,
 				58429FAD2838926A00E2FF0A /* ViewController.m in Sources */,
 				58429FA72838926A00E2FF0A /* AppDelegate.m in Sources */,
 				58429FFD28389D6000E2FF0A /* YYSpriteSheetImage.m in Sources */,

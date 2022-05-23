@@ -6,13 +6,7 @@
 //
 
 #import "UIButton+LCWebImage.h"
-
 #import <objc/runtime.h>
-
-#if TARGET_OS_IOS || TARGET_OS_TV
-
-#import "UIImageView+LCWebImage.h"
-#import "LCImageDownloader.h"
 
 @interface UIButton (_LCWebImage)
 @end
@@ -356,7 +350,4 @@ static const char * lc_backgroundImageDownloadReceiptKeyForState(UIControlState 
     return [receipt.task.originalRequest.URL.absoluteString isEqualToString:urlRequest.URL.absoluteString];
 }
 
-
 @end
-
-#endif

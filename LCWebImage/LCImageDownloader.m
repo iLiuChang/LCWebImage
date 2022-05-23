@@ -5,10 +5,6 @@
 // Created by 刘畅 on 2022/5/12.
 //
 
-#import <TargetConditionals.h>
-
-#if TARGET_OS_IOS || TARGET_OS_TV
-
 #import "LCImageDownloader.h"
 
 @interface LCImageDownloaderResponseHandler : NSObject
@@ -103,16 +99,9 @@
                                                                 create:YES
                                                                  error:nil]
                        URLByAppendingPathComponent:@"com.lcwebimage.imagedownloader"];
-    
-#if TARGET_OS_MACCATALYST
-    return [[NSURLCache alloc] initWithMemoryCapacity:memoryCapacity
-                                         diskCapacity:diskCapacity
-                                         directoryURL:cacheURL];
-#else
     return [[NSURLCache alloc] initWithMemoryCapacity:memoryCapacity
                                          diskCapacity:diskCapacity
                                              diskPath:[cacheURL path]];
-#endif
 }
 
 + (NSURLSessionConfiguration *)defaultURLSessionConfiguration {
@@ -423,5 +412,3 @@
 }
 
 @end
-
-#endif

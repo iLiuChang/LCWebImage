@@ -6,12 +6,7 @@
 //
 
 #import "UIImageView+LCWebImage.h"
-
 #import <objc/runtime.h>
-
-#if TARGET_OS_IOS || TARGET_OS_TV
-
-#import "LCImageDownloader.h"
 
 @interface UIImageView (_LCWebImage)
 @property (readwrite, nonatomic, strong, setter = lc_setActiveImageDownloadReceipt:) LCImageDownloadReceipt *lc_activeImageDownloadReceipt;
@@ -177,5 +172,3 @@
 }
 
 @end
-
-#endif

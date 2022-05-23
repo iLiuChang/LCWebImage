@@ -5,14 +5,9 @@
 // Created by 刘畅 on 2022/5/12.
 //
 
-#import <Foundation/Foundation.h>
-
-#import <TargetConditionals.h>
-
-#if TARGET_OS_IOS || TARGET_OS_TV
-
 #import <UIKit/UIKit.h>
 #import "LCImageDownloader.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -105,5 +100,3 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
-
-#endif

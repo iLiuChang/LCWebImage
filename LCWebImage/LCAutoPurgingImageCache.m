@@ -5,12 +5,8 @@
 // Created by 刘畅 on 2022/5/12.
 //
 
-#import <TargetConditionals.h>
 #import <CommonCrypto/CommonDigest.h>
 #import "UIImage+LCDecoder.h"
-
-#if TARGET_OS_IOS || TARGET_OS_TV 
-
 #import "LCAutoPurgingImageCache.h"
 
 @interface LCCachedImage : NSObject
@@ -513,5 +509,3 @@ static inline NSString * _Nonnull LCDiskCacheFileNameForKey(NSString * _Nullable
     [self.diskCache removeAllData];
 }
 @end
-
-#endif

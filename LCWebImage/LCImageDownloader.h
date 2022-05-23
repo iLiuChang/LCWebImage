@@ -5,10 +5,6 @@
 // Created by 刘畅 on 2022/5/12.
 //
 
-#import <TargetConditionals.h>
-
-#if TARGET_OS_IOS || TARGET_OS_TV 
-
 #import <Foundation/Foundation.h>
 #import "LCAutoPurgingImageCache.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
@@ -170,7 +166,5 @@ typedef NS_OPTIONS(NSUInteger, LCWebImageOptions) {
 - (void)cancelTaskForImageDownloadReceipt:(LCImageDownloadReceipt *)imageDownloadReceipt;
 
 @end
-
-#endif
 
 NS_ASSUME_NONNULL_END

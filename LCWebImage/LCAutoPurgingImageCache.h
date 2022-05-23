@@ -5,10 +5,6 @@
 // Created by 刘畅 on 2022/5/12.
 //
 
-#import <TargetConditionals.h>
-#import <Foundation/Foundation.h>
-
-#if TARGET_OS_IOS || TARGET_OS_TV
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -312,6 +308,4 @@ typedef NS_ENUM(NSUInteger, LCImageDiskCacheExpireType) {
 @end
 
 NS_ASSUME_NONNULL_END
-
-#endif
 

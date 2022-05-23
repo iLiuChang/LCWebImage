@@ -14,12 +14,6 @@ static const CGFloat kDestImageLimitBytes = 60.f * kBytesPerMB;
 static const CGFloat kDestSeemOverlap = 2.0f;   // the numbers of pixels to overlap the seems where tiles meet.
 @implementation UIImage (LCDecoder)
 + (CGColorSpaceRef)colorSpaceGetDeviceRGB {
-#if TARGET_OS_MACCATALYST
-    CGColorSpaceRef screenColorSpace = NSScreen.mainScreen.colorSpace.CGColorSpace;
-    if (screenColorSpace) {
-        return screenColorSpace;
-    }
-#endif
     static CGColorSpaceRef colorSpace;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

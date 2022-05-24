@@ -7,7 +7,12 @@
 
 #import <Foundation/Foundation.h>
 #import "LCAutoPurgingImageCache.h"
+#if __has_include(<AFNetworking/AFHTTPSessionManager.h>)
 #import <AFNetworking/AFHTTPSessionManager.h>
+#else
+#import "AFHTTPSessionManager.h"
+#endif
+
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, LCImageDownloadPrioritization) {

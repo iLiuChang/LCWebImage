@@ -3,9 +3,9 @@ LCWebImage 是基于[AFNetworking](https://github.com/AFNetworking/AFNetworking)
 
 默认不支持动画播放，如果需要支持动画可以实现自定义解码（比如[YYImage](https://github.com/ibireme/YYWebImage)）。
 
-## 使用
+## 用法
 
-#### 加载图片
+### 加载图片
 
 ```objective-c
 // UIImageView
@@ -15,7 +15,7 @@ LCWebImage 是基于[AFNetworking](https://github.com/AFNetworking/AFNetworking)
 [button lc_setImageWithURL:[NSURL URLWithString:@"https://xxx"] forState:(UIControlStateNormal)];
 ```
 
-#### 自定义解码播放动画
+### 自定义解码播放动画
 
 使用[YYImage](https://github.com/ibireme/YYWebImage)实现自定义解码
 
@@ -58,4 +58,26 @@ YYAnimatedImageView *imageView = [[YYAnimatedImageView alloc] init];
 }
 
 ```
+
+## 安装
+
+### CocoaPods
+
+1. 将 cocoapods 更新至最新版本;
+2. 在 Podfile 中添加`pod 'LCWebImage'`;
+3. 执行 `pod install` 或 `pod update`;
+4. 导入` <LCWebImage/UIImageView+LCWebImage.h>`或 `<LCWebImage/UIButton+LCWebImage.h>`;
+5. 注意: LCWebImage会自动导入第三方库`AFNetworking/NSURLSession`中的代码.
+
+### 手动安装
+
+1. 下载 LCWebImage 文件夹内的所有内容;
+2. 将 LCWebImage 内的源文件添加(拖放)到你的工程;
+3. 添加`AFNetworking/NSURLSession`代码.
+
+## 系统要求
+
+- **iOS 9.0+**
+- **Xcode 11.0+**
+- **AFNetworking 4.0+**
 

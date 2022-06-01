@@ -1,11 +1,17 @@
 # LCWebImage
-LCWebImage 是基于[AFNetworking](https://github.com/AFNetworking/AFNetworking)实现的轻量级异步图片加载框架，支持内存和磁盘缓存，同时提供了自定义缓存、自定义图片解码、自定义网络配置等功能。
+LCWebImage is an asynchronous image loading framework based on [AFNetworking](https://github.com/AFNetworking/AFNetworking), which supports memory and disk caching, and provides functions such as custom caching, custom image decoding, and custom network configuration. 
 
-默认不支持动画播放，如果需要支持动画可以实现自定义解码（比如[YYImage](https://github.com/ibireme/YYWebImage)）。
+Animation playback is not supported by default. If you need to support animation, you can implement custom decoding (such as [YYImage](https://github.com/ibireme/YYWebImage)).
 
-## 用法
+## Requirements
 
-### 加载图片
+- **iOS 9.0+**
+- **Xcode 11.0+**
+- **AFNetworking 4.0+**
+
+## Usage
+
+### Load image
 
 ```objective-c
 // UIImageView
@@ -15,18 +21,18 @@ LCWebImage 是基于[AFNetworking](https://github.com/AFNetworking/AFNetworking)
 [button lc_setImageWithURL:[NSURL URLWithString:@"https://xxx"] forState:(UIControlStateNormal)];
 ```
 
-### 自定义解码播放动画
+### Custom decoding playback animation
 
-使用[YYImage](https://github.com/ibireme/YYWebImage)实现自定义解码
+Use [YYImage](https://github.com/ibireme/YYWebImage) to implement custom decoding
 
 ```objective-c
-// 自定义解码
+// custom
 [(LCAutoPurgingImageCache *)[LCImageDownloader defaultInstance].imageCache setCustomDecodedImage:^UIImage * _Nonnull(NSData * _Nonnull data, NSString * _Nonnull identifier) {
     return [[YYImage alloc] initWithData:data scale:UIScreen.mainScreen.scale];
 }];
 ```
 
-加载图片
+Load image
 
 ```objective-c
 YYAnimatedImageView *imageView = [[YYAnimatedImageView alloc] init];
@@ -35,11 +41,11 @@ YYAnimatedImageView *imageView = [[YYAnimatedImageView alloc] init];
 
 
 
-注意: iOS 14 以上YYImage存在显示问题，需要修改`YYAnimatedImageView`源码如下：
+> Note: There is a display problem with YYImage above iOS 14. The source code of `YYAnimatedImageView` needs to be modified as follows:
 
 ```objective-c
 - (void)displayLayer:(CALayer *)layer {
-    // 修改的代码
+    // modified code
     UIImage *currentFrame = _curFrame;
     if (currentFrame) {
         layer.contentsScale = currentFrame.scale;
@@ -51,7 +57,7 @@ YYAnimatedImageView *imageView = [[YYAnimatedImageView alloc] init];
         }
     }
 
-    // 源码
+    // source code
 //    if (_curFrame) {
 //        layer.contents = (__bridge id)_curFrame.CGImage;
 //    }
@@ -59,25 +65,23 @@ YYAnimatedImageView *imageView = [[YYAnimatedImageView alloc] init];
 
 ```
 
-## 安装
+## Installation
 
 ### CocoaPods
 
-1. 将 cocoapods 更新至最新版本;
-2. 在 Podfile 中添加`pod 'LCWebImage'`;
-3. 执行 `pod install` 或 `pod update`;
-4. 导入` <LCWebImage/UIImageView+LCWebImage.h>`或 `<LCWebImage/UIButton+LCWebImage.h>`;
-5. 注意: LCWebImage会自动导入第三方库`AFNetworking/NSURLSession`中的代码.
+To integrate LCWebImage into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
-### 手动安装
+```ruby
+pod 'LCWebImage'
+```
 
-1. 下载 LCWebImage 文件夹内的所有内容;
-2. 将 LCWebImage 内的源文件添加(拖放)到你的工程;
-3. 添加`AFNetworking/NSURLSession`代码.
+### Manual
 
-## 系统要求
+1. Download everything inside the LCWebImage folder;
+2. Add (drag and drop) the source files in LCWebImage to your project;
+3. Add `AFNetworking/NSURLSession` code.
 
-- **iOS 9.0+**
-- **Xcode 11.0+**
-- **AFNetworking 4.0+**
+## License
+
+LCWebImage is provided under the MIT license. See LICENSE file for details.
 

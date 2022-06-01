@@ -1,6 +1,6 @@
 // LCImageDownloader.m
 //
-// LCWebImage(Based on AFNetworking)
+// LCWebImage(Based on AFNetworking) (https://github.com/iLiuChang/LCWebImage)
 //
 // Created by 刘畅 on 2022/5/12.
 //

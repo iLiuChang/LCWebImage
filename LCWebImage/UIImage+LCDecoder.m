@@ -1,5 +1,5 @@
 //  UIImage+LCDecoder.m
-//  LCWebImage
+//  LCWebImage (https://github.com/iLiuChang/LCWebImage)
 //
 //  Created by 刘畅 on 2022/5/23.
 //

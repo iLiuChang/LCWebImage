@@ -2,6 +2,7 @@
 //  LCWebImage (https://github.com/iLiuChang/LCWebImage)
 //
 //  Created by 刘畅 on 2022/5/23.
+//  Copyright © 2022 LiuChang. All rights reserved.
 //
 
 #import "UIImage+LCDecoder.h"

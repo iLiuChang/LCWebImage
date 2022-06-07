@@ -27,7 +27,7 @@ Use [YYImage](https://github.com/ibireme/YYWebImage) to implement custom decodin
 
 ```objective-c
 // custom
-[(LCAutoPurgingImageCache *)[LCImageDownloader defaultInstance].imageCache setCustomDecodedImage:^UIImage * _Nonnull(NSData * _Nonnull data, NSString * _Nonnull identifier) {
+[(LCAutoPurgingImageCache *)[LCWebImageManager defaultInstance].imageCache setCustomDecodedImage:^UIImage * _Nonnull(NSData * _Nonnull data, NSString * _Nonnull identifier) {
     return [[YYImage alloc] initWithData:data scale:UIScreen.mainScreen.scale];
 }];
 ```

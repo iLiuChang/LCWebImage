@@ -1,8 +1,9 @@
 // LCAutoPurgingImageCache.h
 //
-// LCWebImage(Based on AFNetworking) (https://github.com/iLiuChang/LCWebImage)
+// LCWebImage (https://github.com/iLiuChang/LCWebImage)
 //
 // Created by 刘畅 on 2022/5/12.
+// Copyright © 2022 LiuChang. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

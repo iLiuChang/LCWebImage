@@ -1,8 +1,9 @@
 // UIImageView+LCWebImage.m
 //
-// LCWebImage(Based on AFNetworking) (https://github.com/iLiuChang/LCWebImage)
+// LCWebImage (https://github.com/iLiuChang/LCWebImage)
 //
 // Created by 刘畅 on 2022/5/12.
+// Copyright © 2022 LiuChang. All rights reserved.
 //
 
 #import "UIImageView+LCWebImage.h"
@@ -28,12 +29,12 @@
 
 @implementation UIImageView (LCWebImage)
 
-+ (LCImageDownloader *)lc_sharedImageDownloader {
-    return objc_getAssociatedObject([UIImageView class], @selector(lc_sharedImageDownloader)) ?: [LCImageDownloader defaultInstance];
++ (LCWebImageManager *)lc_sharedImageManager {
+    return objc_getAssociatedObject([UIImageView class], @selector(lc_sharedImageManager)) ?: [LCWebImageManager defaultInstance];
 }
 
-+ (void)lc_setSharedImageDownloader:(LCImageDownloader *)imageDownloader {
-    objc_setAssociatedObject([UIImageView class], @selector(lc_sharedImageDownloader), imageDownloader, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
++ (void)lc_setSharedImageManager:(LCWebImageManager *)imageManager {
+    objc_setAssociatedObject([UIImageView class], @selector(lc_sharedImageManager), imageManager, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 #pragma mark -
@@ -80,7 +81,7 @@
     
     [self lc_cancelImageDownloadTask];
     
-    LCImageDownloader *downloader = [[self class] lc_sharedImageDownloader];
+    LCWebImageManager *downloader = [[self class] lc_sharedImageManager];
     id <LCImageCache> imageCache = downloader.imageCache;
     
     //Use the image from the image cache if it exists
@@ -158,7 +159,7 @@
 
 - (void)lc_cancelImageDownloadTask {
     if (self.lc_activeImageDownloadReceipt != nil) {
-        [[self.class lc_sharedImageDownloader] cancelTaskForImageDownloadReceipt:self.lc_activeImageDownloadReceipt];
+        [[self.class lc_sharedImageManager] cancelTaskForImageDownloadReceipt:self.lc_activeImageDownloadReceipt];
         [self clearActiveDownloadInformation];
     }
 }

@@ -1,11 +1,12 @@
-// LCImageDownloader.m
+// LCWebImageManager.m
 //
-// LCWebImage(Based on AFNetworking) (https://github.com/iLiuChang/LCWebImage)
+// LCWebImage (https://github.com/iLiuChang/LCWebImage)
 //
 // Created by 刘畅 on 2022/5/12.
+// Copyright © 2022 LiuChang. All rights reserved.
 //
 
-#import "LCImageDownloader.h"
+#import "LCWebImageManager.h"
 
 @interface LCImageDownloaderResponseHandler : NSObject
 @property (nonatomic, strong) NSUUID *uuid;
@@ -75,7 +76,7 @@
 
 @end
 
-@interface LCImageDownloader ()
+@interface LCWebImageManager ()
 
 @property (nonatomic, strong) dispatch_queue_t synchronizationQueue;
 @property (nonatomic, strong) dispatch_queue_t responseQueue;
@@ -88,7 +89,7 @@
 
 @end
 
-@implementation LCImageDownloader
+@implementation LCWebImageManager
 
 + (NSURLCache *)defaultURLCache {
     NSUInteger memoryCapacity = 20 * 1024 * 1024; // 20MB
@@ -115,7 +116,7 @@
     configuration.requestCachePolicy = NSURLRequestUseProtocolCachePolicy;
     configuration.allowsCellularAccess = YES;
     configuration.timeoutIntervalForRequest = 60.0;
-    configuration.URLCache = [LCImageDownloader defaultURLCache];
+    configuration.URLCache = [LCWebImageManager defaultURLCache];
 
     return configuration;
 }
@@ -159,7 +160,7 @@
 }
 
 + (instancetype)defaultInstance {
-    static LCImageDownloader *sharedInstance = nil;
+    static LCWebImageManager *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] init];

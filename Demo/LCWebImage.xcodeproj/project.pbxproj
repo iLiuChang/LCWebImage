@@ -14,7 +14,7 @@
 		58429FB22838926B00E2FF0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58429FB12838926B00E2FF0A /* Assets.xcassets */; };
 		58429FB52838926B00E2FF0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58429FB32838926B00E2FF0A /* LaunchScreen.storyboard */; };
 		58429FB82838926B00E2FF0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58429FB72838926B00E2FF0A /* main.m */; };
-		58429FD4283897A000E2FF0A /* LCImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 58429FCD283897A000E2FF0A /* LCImageDownloader.m */; };
+		58429FD4283897A000E2FF0A /* LCWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 58429FCD283897A000E2FF0A /* LCWebImageManager.m */; };
 		58429FD5283897A000E2FF0A /* LCAutoPurgingImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58429FCF283897A000E2FF0A /* LCAutoPurgingImageCache.m */; };
 		58429FD6283897A000E2FF0A /* UIImageView+LCWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 58429FD0283897A000E2FF0A /* UIImageView+LCWebImage.m */; };
 		58429FD7283897A000E2FF0A /* UIButton+LCWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 58429FD3283897A000E2FF0A /* UIButton+LCWebImage.m */; };
@@ -43,11 +43,11 @@
 		58429FB62838926B00E2FF0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58429FB72838926B00E2FF0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		58429FCC283897A000E2FF0A /* UIImageView+LCWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+LCWebImage.h"; sourceTree = "<group>"; };
-		58429FCD283897A000E2FF0A /* LCImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCImageDownloader.m; sourceTree = "<group>"; };
+		58429FCD283897A000E2FF0A /* LCWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCWebImageManager.m; sourceTree = "<group>"; };
 		58429FCE283897A000E2FF0A /* UIButton+LCWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LCWebImage.h"; sourceTree = "<group>"; };
 		58429FCF283897A000E2FF0A /* LCAutoPurgingImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCAutoPurgingImageCache.m; sourceTree = "<group>"; };
 		58429FD0283897A000E2FF0A /* UIImageView+LCWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+LCWebImage.m"; sourceTree = "<group>"; };
-		58429FD1283897A000E2FF0A /* LCImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCImageDownloader.h; sourceTree = "<group>"; };
+		58429FD1283897A000E2FF0A /* LCWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCWebImageManager.h; sourceTree = "<group>"; };
 		58429FD2283897A000E2FF0A /* LCAutoPurgingImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCAutoPurgingImageCache.h; sourceTree = "<group>"; };
 		58429FD3283897A000E2FF0A /* UIButton+LCWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LCWebImage.m"; sourceTree = "<group>"; };
 		58429FEE28389D5700E2FF0A /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
@@ -136,8 +136,8 @@
 				58429FCF283897A000E2FF0A /* LCAutoPurgingImageCache.m */,
 				58A2C610283B3D8000496FFC /* UIImage+LCDecoder.h */,
 				58A2C60F283B3D8000496FFC /* UIImage+LCDecoder.m */,
-				58429FD1283897A000E2FF0A /* LCImageDownloader.h */,
-				58429FCD283897A000E2FF0A /* LCImageDownloader.m */,
+				58429FD1283897A000E2FF0A /* LCWebImageManager.h */,
+				58429FCD283897A000E2FF0A /* LCWebImageManager.m */,
 				58429FCE283897A000E2FF0A /* UIButton+LCWebImage.h */,
 				58429FD3283897A000E2FF0A /* UIButton+LCWebImage.m */,
 				58429FCC283897A000E2FF0A /* UIImageView+LCWebImage.h */,
@@ -296,7 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58429FD4283897A000E2FF0A /* LCImageDownloader.m in Sources */,
+				58429FD4283897A000E2FF0A /* LCWebImageManager.m in Sources */,
 				58A2C611283B3D8000496FFC /* UIImage+LCDecoder.m in Sources */,
 				58429FAD2838926A00E2FF0A /* ViewController.m in Sources */,
 				58429FA72838926A00E2FF0A /* AppDelegate.m in Sources */,

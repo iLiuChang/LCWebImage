@@ -1,12 +1,13 @@
 // UIButton+LCWebImage.h
 //
-// LCWebImage(Based on AFNetworking) (https://github.com/iLiuChang/LCWebImage)
+// LCWebImage (https://github.com/iLiuChang/LCWebImage)
 //
 // Created by 刘畅 on 2022/5/12.
+// Copyright © 2022 LiuChang. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "LCImageDownloader.h"
+#import "LCWebImageManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,20 +19,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIButton (LCWebImage)
 
 ///------------------------------------
-/// @name Accessing the Image Downloader
+/// @name Accessing the Image Manager
 ///------------------------------------
 
 /**
- Set the shared image downloader used to download images.
+ Set the shared image manager used to download images.
  
- @param imageDownloader The shared image downloader used to download images.
+ @param imageManager The shared image manager used to download images.
  */
-+ (void)lc_setSharedImageDownloader:(LCImageDownloader *)imageDownloader;
++ (void)lc_setSharedImageManager:(LCWebImageManager *)imageManager;
 
 /**
- The shared image downloader used to download images.
+ The shared image manager used to download images.
  */
-+ (LCImageDownloader *)lc_sharedImageDownloader;
++ (LCWebImageManager *)lc_sharedImageManager;
 
 ///--------------------
 /// @name Setting Image

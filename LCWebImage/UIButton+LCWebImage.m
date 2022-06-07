@@ -1,8 +1,9 @@
 // UIButton+LCWebImage.m
 //
-// LCWebImage(Based on AFNetworking) (https://github.com/iLiuChang/LCWebImage)
+// LCWebImage (https://github.com/iLiuChang/LCWebImage)
 //
 // Created by 刘畅 on 2022/5/12.
+// Copyright © 2022 LiuChang. All rights reserved.
 //
 
 #import "UIButton+LCWebImage.h"
@@ -81,13 +82,13 @@ static const char * lc_backgroundImageDownloadReceiptKeyForState(UIControlState 
 
 @implementation UIButton (LCWebImage)
 
-+ (LCImageDownloader *)lc_sharedImageDownloader {
++ (LCWebImageManager *)lc_sharedImageManager {
     
-    return objc_getAssociatedObject([UIButton class], @selector(lc_sharedImageDownloader)) ?: [LCImageDownloader defaultInstance];
+    return objc_getAssociatedObject([UIButton class], @selector(lc_sharedImageManager)) ?: [LCWebImageManager defaultInstance];
 }
 
-+ (void)lc_setSharedImageDownloader:(LCImageDownloader *)imageDownloader {
-    objc_setAssociatedObject([UIButton class], @selector(lc_sharedImageDownloader), imageDownloader, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
++ (void)lc_setSharedImageManager:(LCWebImageManager *)imageManager {
+    objc_setAssociatedObject([UIButton class], @selector(lc_sharedImageManager), imageManager, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 #pragma mark -
@@ -130,7 +131,7 @@ static const char * lc_backgroundImageDownloadReceiptKeyForState(UIControlState 
     
     [self lc_cancelImageDownloadTaskForState:state];
     
-    LCImageDownloader *downloader = [[self class] lc_sharedImageDownloader];
+    LCWebImageManager *downloader = [[self class] lc_sharedImageManager];
     id <LCImageCache> imageCache = downloader.imageCache;
     
     //Use the image from the image cache if it exists
@@ -246,7 +247,7 @@ static const char * lc_backgroundImageDownloadReceiptKeyForState(UIControlState 
     
     [self lc_cancelBackgroundImageDownloadTaskForState:state];
     
-    LCImageDownloader *downloader = [[self class] lc_sharedImageDownloader];
+    LCWebImageManager *downloader = [[self class] lc_sharedImageManager];
     id <LCImageCache> imageCache = downloader.imageCache;
     
     //Use the image from the image cache if it exists
@@ -327,7 +328,7 @@ static const char * lc_backgroundImageDownloadReceiptKeyForState(UIControlState 
 - (void)lc_cancelImageDownloadTaskForState:(UIControlState)state {
     LCImageDownloadReceipt *receipt = [self lc_imageDownloadReceiptForState:state];
     if (receipt != nil) {
-        [[self.class lc_sharedImageDownloader] cancelTaskForImageDownloadReceipt:receipt];
+        [[self.class lc_sharedImageManager] cancelTaskForImageDownloadReceipt:receipt];
         [self lc_setImageDownloadReceipt:nil forState:state];
     }
 }
@@ -335,7 +336,7 @@ static const char * lc_backgroundImageDownloadReceiptKeyForState(UIControlState 
 - (void)lc_cancelBackgroundImageDownloadTaskForState:(UIControlState)state {
     LCImageDownloadReceipt *receipt = [self lc_backgroundImageDownloadReceiptForState:state];
     if (receipt != nil) {
-        [[self.class lc_sharedImageDownloader] cancelTaskForImageDownloadReceipt:receipt];
+        [[self.class lc_sharedImageManager] cancelTaskForImageDownloadReceipt:receipt];
         [self lc_setBackgroundImageDownloadReceipt:nil forState:state];
     }
 }

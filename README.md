@@ -1,7 +1,7 @@
 # LCWebImage
 LCWebImage is an asynchronous image loading framework based on [AFNetworking](https://github.com/AFNetworking/AFNetworking), which supports memory and disk caching, and provides functions such as custom caching, custom image decoding, and custom network configuration. 
 
-Animation playback is not supported by default. If you need to support animation, you can implement custom decoding (such as [YYImage](https://github.com/ibireme/YYWebImage)).
+Animation playback is not supported by default. If you need to support animation, you can implement custom decoding (such as [YYImage](https://github.com/ibireme/YYImage)).
 
 ## Requirements
 
@@ -23,7 +23,7 @@ Animation playback is not supported by default. If you need to support animation
 
 ### Custom decoding playback animation
 
-Use [YYImage](https://github.com/ibireme/YYWebImage) to implement custom decoding
+Use [YYImage](https://github.com/ibireme/YYImage) to implement custom decoding
 
 ```objective-c
 // custom
